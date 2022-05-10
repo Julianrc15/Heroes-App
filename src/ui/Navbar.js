@@ -45,7 +45,7 @@ export const Navbar = () => {
                 <ul className="navbar-nav ml-auto">
 
                     <span className="nav-item nav-link text-info">
-                        Julian R
+                        User
                     </span>
                     <button
                         className="nav-item nav-link btn" 

@@ -18,7 +18,8 @@ export const LoginScreen = () => {
           <buton 
             className="btn btn-primary"
             onClick={handleLogin}
-          >Login</buton>
+          >Login
+          </buton>
 
       </div>
     )
