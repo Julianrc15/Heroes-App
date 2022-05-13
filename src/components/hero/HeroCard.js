@@ -29,7 +29,7 @@ export const HeroCard = ({
                                 (alter_ego !== characters)
                                     &&<p className="text-muted">{characters}</p>
                             }
-                            <p clasName="card-text">
+                            <p className="card-text">
                                 <small className="text-muted">{first_appearance}</small>
                             </p>
                             <Link to={`/hero/${id}`}>
