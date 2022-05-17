@@ -4,6 +4,7 @@ import queryString from 'query-string'
 import { useForm } from "../../hooks/useForm"
 import { getHeroesByName } from "../selectors/getHeroesByName";
 import {HeroCard} from '../hero/HeroCard'
+import { useMemo } from "react";
 
 
 
@@ -21,7 +22,8 @@ export const SearchScreen = () => {
   })
 
   const {searchText} = formValues;
-  const heoresFiltered = getHeroesByName(q) 
+  const heoresFiltered = useMemo(()=>getHeroesByName(q),[q]) 
+
   const handleSearch=(e)=>{
     e.preventDefault();
     console.log(searchText);
@@ -39,7 +41,7 @@ export const SearchScreen = () => {
               <form onSubmit={ handleSearch }>
                 <input 
                   type="text"
-                  placeholder="Search a hero"
+                  placeholder="Search a heroe"
                   className="form-control" 
                   name="searchText"
                   autoComplete="Off"
@@ -59,6 +61,13 @@ export const SearchScreen = () => {
           <div className="col-7">
             <h3>Results</h3>
             <hr/>
+
+            {
+              (q === '')
+              ? <div className="alert alert-info">Search a heroe</div>
+              : (heoresFiltered.length === 0) && <div className="alert alert-danger animate__animated animate__pulse">No results for: {q}</div>
+            }
+
             {
               heoresFiltered.map(hero=>(
                 <HeroCard

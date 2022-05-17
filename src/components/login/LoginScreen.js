@@ -15,11 +15,11 @@ export const LoginScreen = () => {
       <div className="container mt-5">
           <h1>Login</h1>
           <hr/>
-          <buton 
+          <button 
             className="btn btn-primary"
             onClick={handleLogin}
           >Login
-          </buton>
+          </button>
 
       </div>
     )
